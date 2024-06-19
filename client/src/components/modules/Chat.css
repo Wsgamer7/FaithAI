@@ -1,0 +1,10 @@
+.Chat-container {
+  max-width: 800px;
+  height: 100%;
+  margin: 0 auto;
+}
+.Chat-historyContainer {
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

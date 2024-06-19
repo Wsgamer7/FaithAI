@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://cloudconvert.com/
+HostUrl=https://eu-central.storage.cloudconvert.com/tasks/378d44e4-bba5-47c2-91d4-3e503646706d/chatgpt.ico?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20240618%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20240618T053310Z&X-Amz-Expires=86400&X-Amz-Signature=d9c393d369d502f645a90db0c5fd975a465f7880c0b1099091f96517dc2c1a98&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3D%22chatgpt.ico%22&response-content-type=image%2Fvnd.microsoft.icon&x-id=GetObject

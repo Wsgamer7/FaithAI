@@ -1,0 +1,11 @@
+.ChatBot-container {
+  height: 100vh;
+  width: 100%;
+}
+.ChatBot-leftBar {
+  flex: 0 0 280px;
+}
+.ChatBot-chat {
+  flex: 1;
+  justify-content: center;
+}

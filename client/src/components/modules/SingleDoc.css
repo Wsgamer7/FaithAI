@@ -1,0 +1,46 @@
+.SingleDoc-container {
+  padding: 5px;
+  align-items: center;
+  border-radius: 30px;
+}
+.SingleDoc-container:hover {
+  background-color: var(--grey-hover);
+}
+.SingleDoc-docIcon {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  display: block;
+  background-position-y: center;
+  background-position-x: center;
+  background-repeat: no-repeat;
+  background-image: url("../../public/doc.ico");
+}
+.SingleDoc-content {
+  margin: 0 7px;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 150px;
+}
+.SingleDoc-moreIcon {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  display: block;
+  border-radius: 100%;
+}
+.SingleDoc-container:hover .SingleDoc-moreIcon {
+  background-position-y: center;
+  background-position-x: center;
+  background-repeat: no-repeat;
+
+  background-size: cover;
+
+  background-image: url("../../public/dot3.ico");
+}
+.SingleDoc-moreIcon:hover {
+  background-color: var(--grey-hover);
+  background-color: white;
+}

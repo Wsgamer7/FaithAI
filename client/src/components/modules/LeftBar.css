@@ -1,0 +1,8 @@
+.LeftBar-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--grey);
+  padding: 10px;
+  color: var(--grey-content);
+}

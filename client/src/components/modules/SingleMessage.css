@@ -1,0 +1,32 @@
+.SingleMessage-avater--container {
+  flex: 0 0 24px;
+  height: 100%;
+}
+.SingleMessage-avater {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-position-y: center;
+  background-position-x: center;
+  background-repeat: no-repeat;
+  border-radius: 100%;
+  margin: 0 10px;
+  top: 10px;
+  background-image: url("../../public/chatgpt.ico");
+}
+.SingleMessage-senderName {
+  font-size: 14px;
+  color: var(--grey-name);
+  margin-bottom: var(--xs);
+}
+
+.SingleMessage-user--content {
+  background-color: var(--grey);
+  max-width: 500px;
+  padding: var(--s);
+  border-radius: 30px;
+}
+.SingleMessage-user--container {
+  flex-direction: row-reverse;
+  align-items: start;
+}
