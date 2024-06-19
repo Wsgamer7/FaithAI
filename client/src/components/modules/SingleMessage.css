@@ -30,3 +30,6 @@
   flex-direction: row-reverse;
   align-items: start;
 }
+.SingleMessage-container {
+  flex: 0 0 var(--chat-width);
+}

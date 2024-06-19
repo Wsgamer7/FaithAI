@@ -32,7 +32,7 @@ const Chat = () => {
    * @property {string} content
    */
   return (
-    <div className="Chat-container u-flexColumn">
+    <div className=" u-flexColumn">
       <div className="Chat-historyContainer u-flexColumn">
         {msgs.map((msg, index) => (
           <SingleMessage key={index} user_id="user" message={msg} />
