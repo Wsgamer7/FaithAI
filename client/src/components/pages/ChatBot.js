@@ -2,6 +2,7 @@ import React from "react";
 
 import "./ChatBot.css";
 import LeftNar from "../modules/LeftBar";
+import TopBar from "../modules/TopBar";
 import Chat from "../modules/Chat";
 
 const ChatBot = () => {
@@ -10,7 +11,8 @@ const ChatBot = () => {
       <div className="ChatBot-leftBar">
         <LeftNar />
       </div>
-      <div className="ChatBot-chat u-flex">
+      <div className="ChatBot-right u-flexColumn">
+        <TopBar />
         <Chat />
       </div>
     </div>

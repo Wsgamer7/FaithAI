@@ -17,7 +17,7 @@ const msg1 = {
   content:
     "In CSS, when an element's width is set to 哈哈哈哈 a value greater than its parent's width, it can cause the element to overflow its parent container, potentially leading to layout issues and disrupting the visual appearance of the page. To handle such situations, you can employ various techniques to ensure a consistent and well-structured layout.",
 };
-const msgs = [msg0, msg1, msg1, msg1, msg1, msg1, msg1, msg1];
+const msgs = [msg0, msg1, msg1, msg0, msg1, msg1, msg1, msg1];
 
 const Chat = () => {
   /**
@@ -32,14 +32,15 @@ const Chat = () => {
    * @property {string} content
    */
   return (
-    <div className=" u-flexColumn">
-      <div className="Chat-historyContainer u-flexColumn">
+    <div className="u-flexColumn Chat-warpper">
+      <div className=" Chat-historyContainer u-flexColumn">
         {msgs.map((msg, index) => (
           <SingleMessage key={index} user_id="user" message={msg} />
         ))}
       </div>
-      {/* {todo: "add input field here"} */}
-      <h1>Input here</h1>
+      <div className="u-flex u-flex-justifyCenter">
+        <div className="Chat-input"> input here</div>
+      </div>
     </div>
   );
 };

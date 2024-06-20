@@ -1,10 +1,15 @@
-.Chat-container {
-  max-width: var(--chat-width);
-  height: 100%;
-  margin: 0 auto;
-}
 .Chat-historyContainer {
   flex-grow: 1;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.Chat-warpper {
+  height: 100%;
+  width: auto;
+}
+
+.Chat-input {
+  height: 100px;
+  flex: 0 0 var(--chat-width);
 }

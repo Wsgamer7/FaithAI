@@ -5,7 +5,6 @@
 .ChatBot-leftBar {
   flex: 0 0 280px;
 }
-.ChatBot-chat {
+.ChatBot-right {
   flex: 1;
-  justify-content: center;
 }
