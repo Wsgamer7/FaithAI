@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import SingleMessage from "./SingleMessage";
 import "./Chat.css";
 const msg0 = {
@@ -35,11 +35,11 @@ const Chat = () => {
     <div className="u-flexColumn Chat-warpper">
       <div className=" Chat-historyContainer u-flexColumn">
         {msgs.map((msg, index) => (
-          <SingleMessage key={index} user_id="user" message={msg} />
+          <SingleMessage key={index} userId="user" message={msg} />
         ))}
       </div>
       <div className="u-flex u-flex-justifyCenter">
-        <div className="Chat-input"> input here</div>
+        <div className="Chat-input"> input here </div>
       </div>
     </div>
   );

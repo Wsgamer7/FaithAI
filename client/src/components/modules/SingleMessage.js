@@ -2,11 +2,11 @@ import React from "react";
 import "./SingleMessage.css";
 /**
  * Proptypes
- * @param {string} user_id
+ * @param {string} userId
  * @param {MessageObject} message
  */
 const SingleMessage = (props) => {
-  if (props.user_id == props.message.sender._id) {
+  if (props.userId == props.message.sender._id) {
     return (
       <div className="u-flex u-flex-justifyCenter">
         <div className="SingleMessage-container">
