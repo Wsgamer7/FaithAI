@@ -5,7 +5,7 @@ import jwt_decode from "jwt-decode";
 import NotFound from "./pages/NotFound";
 import ChatBot from "./pages/ChatBot";
 
-// import { socket } from "../client-socket.js";
+import { socket } from "../client-socket.js";
 import { get, post } from "../utilities";
 import "../utilities.css";
 
@@ -25,7 +25,7 @@ const App = () => {
     // setUserId("user");
     post("/api/login", { token: userToken }).then((user) => {
       setUserId(user._id);
-      // post("/api/initsocket", { socketid: socket.id });
+      post("/api/initsocket", { socketid: socket.id });
     });
     setUserAvater(decodedCredential.picture);
   };
