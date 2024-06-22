@@ -11,6 +11,7 @@ const express = require("express");
 
 // import models so we can interact with the database
 const User = require("./models/user");
+const Message = require("./models/message");
 
 // import authentication library
 const auth = require("./auth");
@@ -28,7 +29,7 @@ router.get("/whoami", (req, res) => {
     // not logged in
     return res.send({});
   }
-
+  //todo: just send userId and avatar url
   res.send(req.user);
 });
 
@@ -40,6 +41,7 @@ router.post("/initsocket", (req, res) => {
   }
   res.send({});
 });
+router.post("message", (req, res) => {});
 
 // |------------------------------|
 // | write your API methods below!|

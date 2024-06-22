@@ -38,7 +38,9 @@ function login(req, res) {
     .then((user) => getOrCreateUser(user))
     .then((user) => {
       // persist user in the session
+      //todo: just store the userid in the session
       req.session.user = user;
+      //todo: just send userId and avatar url
       res.send(user);
     })
     .catch((err) => {
