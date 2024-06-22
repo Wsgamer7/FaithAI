@@ -1,0 +1,9 @@
+.NewInput-messageContext {
+  width: var(--chat-width);
+  font-size: 1.2rem;
+  background-color: var(--grey);
+  border: 0;
+  border-radius: 84px;
+  padding: 12px;
+  outline: none;
+}

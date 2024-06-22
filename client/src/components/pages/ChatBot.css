@@ -6,5 +6,6 @@
   flex: 0 0 280px;
 }
 .ChatBot-right {
+  margin-bottom: 20px;
   flex: 1;
 }

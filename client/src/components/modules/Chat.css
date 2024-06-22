@@ -10,6 +10,5 @@
 }
 
 .Chat-input {
-  height: 100px;
-  flex: 0 0 var(--chat-width);
+  flex: 0 0 100px;
 }

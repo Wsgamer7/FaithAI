@@ -16,6 +16,14 @@ const App = () => {
   const [userId, setUserId] = useState(undefined);
   const [userAvater, setUserAvater] = useState(undefined);
 
+  useEffect(() => {
+    get("/api/whoami").then((user) => {
+      if (user._id) {
+        setUserId(user._id);
+        setUserAvater(user.avatar);
+      }
+    });
+  }, []);
   const handleLogin = (credentialResponse) => {
     const userToken = credentialResponse.credential;
     const decodedCredential = jwt_decode(userToken);
@@ -26,8 +34,8 @@ const App = () => {
     post("/api/login", { token: userToken }).then((user) => {
       setUserId(user._id);
       post("/api/initsocket", { socketid: socket.id });
+      setUserAvater(decodedCredential.picture);
     });
-    setUserAvater(decodedCredential.picture);
   };
 
   const handleLogout = () => {

@@ -25,7 +25,7 @@ const ChatBot = (props) => {
           handleLogin={props.handleLogin}
           handleLogout={props.handleLogout}
         />
-        <Chat />
+        <Chat userId={props.userId} />
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import SingleMessage from "./SingleMessage";
+import { NewMessage } from "./NewInput";
 import "./Chat.css";
 const msg0 = {
   sender: {
@@ -19,7 +20,10 @@ const msg1 = {
 };
 const msgs = [msg0, msg1, msg1, msg0, msg1, msg1, msg1, msg1];
 
-const Chat = () => {
+/**
+ * @param {string} userId
+ */
+const Chat = ({ userId }) => {
   /**
    * @typedef UserObject
    * @property {string} _id
@@ -35,11 +39,11 @@ const Chat = () => {
     <div className="u-flexColumn Chat-warpper">
       <div className=" Chat-historyContainer u-flexColumn">
         {msgs.map((msg, index) => (
-          <SingleMessage key={index} userId="user" message={msg} />
+          <SingleMessage key={index} userId={userId} message={msg} />
         ))}
       </div>
-      <div className="u-flex u-flex-justifyCenter">
-        <div className="Chat-input"> input here </div>
+      <div className="Chat-input ">
+        <NewMessage userId={userId} recipient={{ _id: "chatgpt", name: "chatgpt" }} />
       </div>
     </div>
   );
