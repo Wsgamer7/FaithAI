@@ -6,12 +6,15 @@ import "./NewInput.css";
 /**
  * New message input
  * @param {string} userId
- * @param {UserObject} recipient
+ * @param {({sender_id: string, recipient_id: string, content: string})=> void} addNewMessage
  */
-const NewMessage = ({ userId, recipient }) => {
+const NewMessage = ({ userId, addNewMessage }) => {
+  const recipient_id = "chatgpt";
   const sendMessage = (value) => {
-    const body = { recipient: recipient, content: value };
-    post("/api/message", body);
+    const body = { recipient_id: recipient_id, content: value };
+    post("/api/message", body).then((message) => {
+      addNewMessage(message);
+    });
   };
 
   const [value, setValue] = useState("");

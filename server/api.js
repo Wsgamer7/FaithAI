@@ -21,6 +21,7 @@ const router = express.Router();
 
 //initialize socket
 const socketManager = require("./server-socket");
+const message = require("./models/message");
 
 router.post("/login", auth.login);
 router.post("/logout", auth.logout);
@@ -41,7 +42,27 @@ router.post("/initsocket", (req, res) => {
   }
   res.send({});
 });
-router.post("message", (req, res) => {});
+router.post("/message", (req, res) => {
+  console.log("recive a message from user: " + req.user);
+  if (!req.user) {
+    return res.status(401).send("Not logged in");
+  }
+  const newMessage = new Message({
+    sender_id: req.user._id,
+    recipient_id: req.body.recipient_id,
+    content: req.body.content,
+  });
+  newMessage.save().then((message) => {
+    res.send(message);
+  });
+});
+router.get("/messages", (req, res) => {
+  if (!req.user) {
+    return res.status(401).send("Not logged in");
+  }
+  const query = { $or: [{ sender_id: req.user._id }, { recipient_id: req.user._id }] };
+  Message.find(query).then((messages) => res.send(messages));
+});
 
 // |------------------------------|
 // | write your API methods below!|

@@ -1,40 +1,48 @@
-import React, { useContext } from "react";
+import React, { useEffect, useState } from "react";
 import SingleMessage from "./SingleMessage";
 import { NewMessage } from "./NewInput";
+import { get, post } from "../../utilities";
 import "./Chat.css";
+//todo: change defalut_msgs
 const msg0 = {
-  sender: {
-    _id: "user",
-    name: "User",
-  },
+  sender_id: "user",
+  recipient_id: "chatgpt",
   content:
     "I'm having trouble with CSS layouts. fix thisI'm having trouble with CSS layouts. fix thisI'm having trouble with CSS layouts. fix this?",
 };
 const msg1 = {
-  sender: {
-    _id: "chatgpt",
-    name: "chatgpt",
-  },
+  sender_id: "chatgpt",
+  recipient_id: "user",
   content:
     "In CSS, when an element's width is set to 哈哈哈哈 a value greater than its parent's width, it can cause the element to overflow its parent container, potentially leading to layout issues and disrupting the visual appearance of the page. To handle such situations, you can employ various techniques to ensure a consistent and well-structured layout.",
 };
-const msgs = [msg0, msg1, msg1, msg0, msg1, msg1, msg1, msg1];
+const defalut_msgs = [msg0, msg1, msg1, msg0, msg1, msg1, msg1, msg1];
 
 /**
  * @param {string} userId
  */
 const Chat = ({ userId }) => {
   /**
-   * @typedef UserObject
-   * @property {string} _id
-   * @property {string} name
-   *
-   */
-  /**
    * @typedef MessageObject
-   * @property {UserObject} sender
+   * @property {string} sender_id
+   * @property {string} recipient_id
    * @property {string} content
    */
+  const [msgs, setMsgs] = useState([]);
+  useEffect(() => {
+    console.log("userId:" + userId);
+    if (userId == undefined) {
+      setMsgs(defalut_msgs);
+    } else {
+      get("/api/messages").then((messages) => {
+        setMsgs(messages);
+      });
+    }
+  }, [userId]);
+  const addNewMessage = (newMessage) => {
+    setMsgs([...msgs, newMessage]);
+  };
+
   return (
     <div className="u-flexColumn Chat-warpper">
       <div className=" Chat-historyContainer u-flexColumn">
@@ -43,7 +51,7 @@ const Chat = ({ userId }) => {
         ))}
       </div>
       <div className="Chat-input ">
-        <NewMessage userId={userId} recipient={{ _id: "chatgpt", name: "chatgpt" }} />
+        <NewMessage userId={userId} addNewMessage={addNewMessage} />
       </div>
     </div>
   );
