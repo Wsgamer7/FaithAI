@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createContext } from "react";
 import { Routes, Route } from "react-router-dom";
-import jwt_decode from "jwt-decode";
+// import jwt_decode from "jwt-decode";
 
 import NotFound from "./pages/NotFound";
 import ChatBot from "./pages/ChatBot";
@@ -26,15 +26,13 @@ const App = () => {
   }, []);
   const handleLogin = (credentialResponse) => {
     const userToken = credentialResponse.credential;
-    const decodedCredential = jwt_decode(userToken);
-    console.log(`Logged in as ${decodedCredential.name}`);
-    console.log(`avatar: ${decodedCredential.picture}`);
-
-    // setUserId("user");
+    // const decodedCredential = jwt_decode(userToken);
+    // console.log(`Logged in as ${decodedCredential.name}`);
+    // console.log(`avatar: ${decodedCredential.picture}`);
     post("/api/login", { token: userToken }).then((user) => {
       setUserId(user._id);
       post("/api/initsocket", { socketid: socket.id });
-      setUserAvater(decodedCredential.picture);
+      setUserAvater(user.avatar);
     });
   };
 
