@@ -106,6 +106,10 @@ form {
   position: relative;
 }
 
+.u-absolute {
+  position: absolute;
+}
+
 .u-pointer {
   cursor: pointer;
 }

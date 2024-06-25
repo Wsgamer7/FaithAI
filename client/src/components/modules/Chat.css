@@ -7,6 +7,7 @@
 .Chat-warpper {
   height: 100%;
   width: auto;
+  /* align-items: between; */
 }
 
 .Chat-input {
