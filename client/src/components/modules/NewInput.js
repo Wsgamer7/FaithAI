@@ -11,9 +11,15 @@ import "./NewInput.css";
 const NewMessage = ({ userId, addNewMessage }) => {
   const recipient_id = "chatgpt";
   const sendMessage = (value) => {
+    const newMsgLocal = {
+      sender_id: userId,
+      recipient_id: recipient_id,
+      content: value,
+    };
+    addNewMessage(newMsgLocal);
     const body = { recipient_id: recipient_id, content: value };
-    post("/api/message", body).then((message) => {
-      addNewMessage(message);
+    post("/api/message", body).then((bot_res_message) => {
+      addNewMessage(bot_res_message);
     });
   };
 

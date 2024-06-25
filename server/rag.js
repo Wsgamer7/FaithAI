@@ -142,6 +142,10 @@ const retrieveContext = async (query, k) => {
 };
 
 // RAG
+/**
+ * @param {string} query
+ * @returns {string}
+ */
 const retrievalAugmentedGeneration = async (query) => {
   const context = await retrieveContext(query, NUM_DOCUMENTS);
   const llmResponse = await chatCompletion(query, context);
