@@ -16,7 +16,7 @@ const ChatBot = (props) => {
   return (
     <div className="u-flex ChatBot-container">
       <div className="ChatBot-leftBar">
-        <LeftNar />
+        <LeftNar userId={props.userId} />
       </div>
       <div className="ChatBot-right u-flexColumn">
         <TopBar

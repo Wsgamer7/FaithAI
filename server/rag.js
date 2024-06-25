@@ -1,10 +1,15 @@
 require("dotenv").config();
+const Document = require("./models/document");
 
 const ANYSCALE_API_KEY = process.env.ANYSCALE_API_KEY;
 const CHROMADB_URI = process.env.CHROMADB_URI || "http://localhost:8000";
 
 // some information about this model: https://ai.meta.com/llama/
 const MODEL = "meta-llama/Llama-2-13b-chat-hf";
+
+// another common choice of embedding model is text-embedding-ada-002.
+// we use gte-large because this is the only embedding model anyscale has access to
+const EMBEDDING_MODEL = "thenlper/gte-large";
 
 // anyscale uses openAI under the hood! but anyscale gives us $10 free credits
 const { OpenAI } = require("openai");
@@ -64,7 +69,7 @@ const chatCompletion = async (query, context) => {
 };
 
 // initialize vector database
-const COLLECTION_NAME = "faithai-collection";
+const COLLECTION_NAME = "catbook-collection";
 const { ChromaClient } = require("chromadb");
 const client = new ChromaClient({
   path: CHROMADB_URI,
@@ -82,6 +87,8 @@ const syncDBs = async () => {
   });
   // retrieve corpus from main db
   const allMongoDocs = await Document.find({});
+  console.log(allMongoDocs);
+
   if (allMongoDocs.length === 0) {
     // avoid errors associated with passing empty lists to chroma
     console.log("number of documents", await collection.count());
@@ -112,7 +119,7 @@ const initCollection = async () => {
     await syncDBs();
     console.log("finished initializing chroma collection");
   } catch (error) {
-    console.log("chromadb not running");
+    console.log("chromadb not running" + error);
   }
 };
 
@@ -140,8 +147,10 @@ const retrievalAugmentedGeneration = async (query) => {
   const llmResponse = await chatCompletion(query, context);
   return llmResponse;
 };
+
 // add a document to collection
 const addDocument = async (document) => {
+  console.log("adding document", document);
   const embedding = await generateEmbedding(document.content);
   await collection.add({
     ids: [document._id.toString()],

@@ -69,6 +69,7 @@ router.get("/documents", (req, res) => {
   Document.find({ userId: req.user._id }).then((documents) => res.send(documents));
 });
 router.post("/document", (req, res) => {
+  console.log("user: " + req.user);
   const newDocument = new Document({
     userId: req.user._id,
     content: req.body.content,
@@ -77,6 +78,7 @@ router.post("/document", (req, res) => {
     try {
       await document.save();
       await ragManager.addDocument(document);
+      res.send(document);
     } catch (error) {
       console.log("error:", error);
       res.status(500);
@@ -86,6 +88,7 @@ router.post("/document", (req, res) => {
   addDocument(newDocument);
 });
 router.post("/updateDocument", (req, res) => {
+  console.log("update document");
   const updateDocument = async (document_id) => {
     const document = await Document.findById(document_id);
     if (!document) res.send({});

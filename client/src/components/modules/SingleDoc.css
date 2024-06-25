@@ -44,3 +44,7 @@
   background-color: var(--grey-hover);
   background-color: white;
 }
+
+.SingleDoc-deleteButton {
+  position: relative;
+}

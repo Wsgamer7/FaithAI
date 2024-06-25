@@ -3,10 +3,13 @@ import React from "react";
 import "./LeftBar.css";
 import Doc from "./Doc";
 
-const LeftBar = () => {
+/**
+ * @param {string} userId
+ */
+const LeftBar = ({ userId }) => {
   return (
     <div className="LeftBar-container">
-      <Doc />
+      <Doc userId={userId} />
     </div>
   );
 };
