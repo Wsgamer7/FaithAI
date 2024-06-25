@@ -40,7 +40,7 @@ const Chat = ({ userId }) => {
     }
   }, [userId]);
   const addNewMessage = (newMessage) => {
-    setMsgs([...msgs, newMessage]);
+    setMsgs((prevMsgs) => [...prevMsgs, newMessage]);
   };
 
   return (
