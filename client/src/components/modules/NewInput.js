@@ -32,13 +32,14 @@ const NewMessage = ({ userId, addNewMessage }) => {
   // called when the user hits "Submit" for a new post
   const handleSubmit = (event) => {
     event.preventDefault();
-    sendMessage(value);
+    if (value) {
+      sendMessage(value);
+    }
     setValue("");
   };
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
-      sendMessage(value);
-      setValue("");
+      handleSubmit(event);
     }
   };
   let defaultText = "少年，说出你的疑问";
