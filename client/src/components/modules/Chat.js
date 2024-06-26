@@ -47,7 +47,7 @@ const Chat = ({ userId }) => {
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({
       behavior: "smooth",
-      block: "nearest",
+      block: "end",
       duration: 500,
     });
   }, [msgs]);

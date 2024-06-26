@@ -1,5 +1,6 @@
 .SingleDoc-container {
   padding: 5px;
+  justify-content: space-between;
   align-items: center;
   border-radius: 30px;
 }
@@ -31,20 +32,21 @@
   display: block;
   border-radius: 100%;
 }
-.SingleDoc-container:hover .SingleDoc-moreIcon {
+.SingleDoc-deleteButton {
+  display: block;
+  width: 24px;
+  height: 24px;
   background-position-y: center;
   background-position-x: center;
   background-repeat: no-repeat;
-
-  background-size: cover;
-
-  background-image: url("../../public/dot3.ico");
+  background-size: 70%;
+  border-radius: 100%;
+  top: 10px;
+  background-image: url("../../public/delete.ico");
 }
-.SingleDoc-moreIcon:hover {
-  background-color: var(--grey-hover);
-  background-color: white;
+.SingleDoc-deleteButton:hover {
+  background-color: var(--white);
 }
-
-.SingleDoc-deleteButton {
-  position: relative;
+.SingleDoc-buttonContainer {
+  justify-content: end;
 }

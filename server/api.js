@@ -82,9 +82,15 @@ router.get("/messages", (req, res) => {
 });
 
 router.get("/documents", (req, res) => {
+  if (!req.user) {
+    return res.status(401).send("Not logged in");
+  }
   Document.find({ userId: req.user._id }).then((documents) => res.send(documents));
 });
 router.post("/document", (req, res) => {
+  if (!req.user) {
+    return res.status(401).send("Not logged in");
+  }
   console.log("user: " + req.user);
   const newDocument = new Document({
     userId: req.user._id,
@@ -104,6 +110,9 @@ router.post("/document", (req, res) => {
   addDocument(newDocument);
 });
 router.post("/updateDocument", (req, res) => {
+  if (!req.user) {
+    return res.status(401).send("Not logged in");
+  }
   const updateDocument = async (document_id) => {
     const document = await Document.findById(document_id);
     if (!document) res.send({});

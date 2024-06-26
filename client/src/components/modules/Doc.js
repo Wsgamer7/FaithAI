@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SingleDoc from "./SingleDoc";
-import { PopUpInput } from "./NewInput";
+import { PopUpButton } from "./NewInput";
 
 import "./Doc.css";
 import { get, post } from "../../utilities";
@@ -74,10 +74,9 @@ const Doc = ({ userId }) => {
   };
   return (
     <div>
-      <p className="Doc-title">文档</p>
-      <p>SerchBar</p>
       <div className="u-flexColumn">
-        <PopUpInput onSubmit={addADoc} defaultText={"11"} />
+        <PopUpButton className="Doc-addDoc" onSubmit={addADoc} defaultText={""} isAddDoc={true} />
+        <p className="Doc-title">文档</p>
         {docs.map((aDoc, index) => (
           <SingleDoc key={index} aDoc={aDoc} updateADoc={updateADoc} deleteADoc={deleteADoc} />
         ))}

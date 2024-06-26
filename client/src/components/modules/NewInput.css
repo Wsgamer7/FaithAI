@@ -8,6 +8,20 @@
   outline: none;
 }
 
+.NewPostInput-sender {
+  min-width: 50px;
+  min-height: 100%;
+  background-position-y: center;
+  background-position-x: center;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  border-radius: 120px;
+  background-image: url("../../public/sender.ico");
+  background-color: var(--grey);
+}
+.NewPostInput-sender:hover {
+  background-color: rgb(195, 201, 207);
+}
 .NewInput-popup {
   position: fixed;
   top: 0;
@@ -21,16 +35,66 @@
 }
 .NewInput-popup-inner {
   background: white;
-  padding: 20px;
-  border-radius: 10px;
+  height: 140px;
+  width: 400px;
+  padding: 10px;
+  border-radius: 20px;
   text-align: center;
 }
-.NewInput-popup-inner input {
-  margin: 10px 0;
+.NewInput-popup-inner textarea {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  margin-top: 20px;
   padding: 10px;
-  width: 80%;
+  border: 1px solid #ccc;
+  width: 90%;
+  height: 30%;
+}
+.NewInput-popup-inner textarea:focus {
+  border-color: rgb(107, 107, 221);
+  outline: none;
 }
 .NewInput-popup-inner button {
-  margin: 5px;
-  padding: 10px 20px;
+  margin: 10px 10px;
+  border: none;
+  border-radius: 15px;
+  padding: 8px;
+  font-size: 1.1rem;
+  background: var(--white);
+  color: rgb(150, 94, 228);
+}
+.NewInput-popup-inner button:hover {
+  background-color: var(--grey-hover);
+}
+
+.NewInput-buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+.NewInput-renameButton {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-position-y: center;
+  background-position-x: center;
+  background-repeat: no-repeat;
+  background-size: 70%;
+  border-radius: 100%;
+  background-image: url("../../public/rename.ico");
+}
+.NewInput-renameButton:hover {
+  background-color: var(--white);
+}
+.NewInput-addButton {
+  display: block;
+  width: 35%;
+  height: 25px;
+  padding: 5px;
+  text-align: center;
+  background-color: rgb(221, 227, 234);
+  border-radius: 17px;
+}
+
+.NewInput-addButton:hover {
+  background-color: rgb(195, 201, 207);
 }
